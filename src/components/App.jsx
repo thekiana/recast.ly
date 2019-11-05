@@ -11,7 +11,6 @@ class App extends React.Component {
       videos: exampleVideoData,
       currentVideo: exampleVideoData[0]
     };
-    this.handleClick = this.handleClick.bind(this);
   }
 
   render() {
@@ -19,24 +18,24 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <div><h5><em><Search videos={this.state.videos} video={this.state.currentVideo} /></em> view goes here</h5></div>
+            <div><h5><em><Search video={this.state.currentVideo} /></em> view goes here</h5></div>
           </div>
         </nav>
         <div className="row">
           <div className="col-md-7">
-            <div><h5><em><VideoPlayer videos={this.state.videos} video={this.state.currentVideo} /></em> view goes here</h5></div>
+            <div><h5><em><VideoPlayer video={this.state.currentVideo} /></em> view goes here</h5></div>
           </div>
           <div className="col-md-5">
-            <div><h5><em><VideoList videos={this.state.videos} video={this.state.currentVideo} callback={(e) => (this.handleClick(e))}/></em> view goes here</h5></div>
+            <div><h5><em><VideoList videos={this.state.videos} video={this.state.currentVideo} callback={(data) => (this.handleClick(data))}/></em> view goes here</h5></div>
           </div>
         </div>
       </div>
     )
   }
 
-  handleClick(e) {
+  handleClick(data) {
     this.setState({
-      currentVideo: e.target.value //selectedVideo from click;
+      currentVideo: data //selectedVideo from click;
     });
   }
 
