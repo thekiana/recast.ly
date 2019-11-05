@@ -1,3 +1,5 @@
+import VideoList from './components/VideoList.js';
+
 var App = () => (
   <div>
     <nav className="navbar">
