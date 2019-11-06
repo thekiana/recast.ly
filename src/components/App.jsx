@@ -43,7 +43,6 @@ class App extends React.Component {
   }
 
   handleSearch(text) {
-    debugger;
     searchYouTube({
       query: text,
       max: 5,

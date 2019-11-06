@@ -1,21 +1,22 @@
 var searchYouTube = (options, callback) => {
   // debugger;
-  var getObj = {
+  var newObj = {
     part: 'snippet',
     key: options.key,
     q: options.query,
-    maxResults: options.max || 5,
     type: 'video',
-    videoEmbedded: 'true'
+    maxResults: options.max,
+    videoEmbeddable: 'true'
   };
 
-  $.get('https://www.googleapis.com/youtube/v3/search', getObj)
-    .done(({ items }) => {
+  $.get('https://www.googleapis.com/youtube/v3/search', newObj)
+    .done(({items}) => {
       if (callback) {
         callback(items);
       }
     });
 
+
 };
-window.searchYouTube = searchYouTube;
+
 export default searchYouTube;
