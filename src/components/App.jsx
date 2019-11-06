@@ -1,7 +1,7 @@
 import Search from './Search.js';
 import VideoList from './VideoList.js';
 import VideoPlayer from './VideoPlayer.js';
-import exampleVideoData from '../data/exampleVideoData.js';
+// import exampleVideoData from '../data/exampleVideoData.js';
 
 import YOUTUBE_API_KEY from '../config/youtube.js';
 import searchYouTube from '../lib/searchYouTube.js';
@@ -11,10 +11,14 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      videos: exampleVideoData,
-      currentVideo: exampleVideoData[0]
+      videos: [],
+      currentVideo: {}
     };
   }
+
+  // componentDidMount() {
+  //   this.handleSearch();
+  // }
 
   render() {
     return (
@@ -48,7 +52,6 @@ class App extends React.Component {
       max: 5,
       key: YOUTUBE_API_KEY
     }, (response) => {
-      debugger;
       this.setState({
         videos: response,
         currentVideo: response[0]
